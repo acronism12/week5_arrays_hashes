@@ -12,7 +12,7 @@ users = {
   "Erik" => {
     :twitter => "eriksf",
     :favourite_numbers => [8, 12, 24],
-    :home_town => "Linithgow",
+    :home_town => "Linlithgow",
     :pets => {
       "nemo" => :fish,
       "kevin" => :fish,
@@ -43,8 +43,11 @@ puts "Erik's favourite numbers are #{users["Erik"][:favourite_numbers]}"
 puts "Avril's pet colin is a #{users["Avril"][:pets]["colin"]}"
 
 #5. Return the smallest of Erik's favorite numbers
-smallest_num = users["Erik"][:favourite_numbers].sort.first
+smallest_num = users["Erik"][:favourite_numbers].sort.first # or .min
 puts "The smallest of Erik's favourite numbers is #{smallest_num}"
+
+#BONUS Return Jonathans favourite numbers in ascending order removing duplicates
+puts "Jonathans favourites are #{users["Jonathan"][:favourite_numbers].sort.uniq}"
 
 #6. Add the number `7` to Erik's favorite numbers
 new_favourites = users["Erik"][:favourite_numbers].unshift(7)
@@ -56,8 +59,10 @@ users["Erik"][:home_town] = "Edinburgh"
 puts "Erik's new home town is #{users["Erik"][:home_town]}"
 #8. Add a pet dog to Erik called "Fluffy"
 users["Erik"][:pets] = {dog: "Fluffy"}
+# users["Erik"][:pets]["Fluffy"] = :dog
 puts "Erik has a pet dog called #{users["Erik"][:pets][:dog]}"
 
 #9. Add yourself to the users hash
-users = {"Alan" => users}
+my_hash = {:twitter => "customaction", :favourite_numbers => [1,12,33], :home_town => "Edinburgh", :pets => {"Casey" => :dog}}
+users["Alan"] = my_hash
 puts "List of all users is #{[users]}"
